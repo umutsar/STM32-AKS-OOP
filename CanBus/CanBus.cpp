@@ -2,7 +2,7 @@
  * CanBus.cpp
  *
  *  Created on: Jul 27, 2024
- *      Author: umutsar
+ *      Author: superuser
  */
 
 #include "CanBus.h"
@@ -17,23 +17,23 @@ CanBus::CanBus() {
 }
 
 
-uint32_t getStdId() {
+uint32_t CanBus::getStdId() {
 	return receiver_structure.StdId;
 }
 
-uint32_t getExtId() {
+uint32_t CanBus::getExtId() {
 	return receiver_structure.ExtId;
 }
 
-uint32_t getIDE() {
+uint32_t CanBus::getIDE() {
 	return receiver_structure.IDE;
 }
 
-uint32_t getRTR() {
+uint32_t CanBus::getRTR() {
 	return receiver_structure.RTR;
 }
 
-uint32_t getDLC() {
+uint32_t CanBus::getDLC() {
 	return receiver_structure.DLC;
 }
 
@@ -46,24 +46,14 @@ void CanBus::Transmit(uint8_t* _TransmittedData, uint32_t size) {
 
 uint8_t* CanBus::Receive() {
     static uint8_t RxData[8];
-
     if (HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &receiver_structure, RxData) == HAL_OK) {
-        return RxData;
+    	return RxData;
     } else {
     	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
         return nullptr;
     }
 }
 
+
 CanBus::~CanBus() {
 }
-
-
-
-
-
-
-
-
-
-
