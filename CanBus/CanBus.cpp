@@ -2,7 +2,7 @@
  * CanBus.cpp
  *
  *  Created on: Jul 27, 2024
- *      Author: superuser
+ *      Author: umutsar
  */
 
 #include "CanBus.h"
