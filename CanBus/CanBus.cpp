@@ -55,7 +55,6 @@ uint8_t* CanBus::Receive() {
     }
 }
 
-
 CanBus::~CanBus() {
 }
 
