@@ -19,9 +19,9 @@ private:
 public:
 	Nextion(UART_HandleTypeDef *huart);
 
-	void NextionSendString(char *Id, char *String);
-	void NextionSendNumber(char *Id, int number);
-	void NextionSetVisibility(char *Id, int visibility);
+	void NextionSendString(const char *Id, const char *String);
+	void NextionSendNumber(const char *Id, int number);
+	void NextionSetVisibility(const char *Id, int visibility);
 
 	virtual ~Nextion();
 };
