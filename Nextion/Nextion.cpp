@@ -11,7 +11,7 @@ Nextion::Nextion(UART_HandleTypeDef *huart) {
 }
 
 
-void Nextion::NextionSendString(char *Id, char *String)
+void Nextion::NextionSendString(const char *Id, const char *String) // char changed to const char
 {
     char buf[70];
     int len = sprintf(buf, "%s.txt=\"%s\"", Id, String);
@@ -20,7 +20,7 @@ void Nextion::NextionSendString(char *Id, char *String)
 }
 
 
-void Nextion::NextionSendNumber(char *Id, int number)
+void Nextion::NextionSendNumber(const char *Id, int number) // char changed to const char
 {
     char buf[50];
     int len = sprintf(buf, "%s.val=%d", Id, number);
@@ -29,7 +29,7 @@ void Nextion::NextionSendNumber(char *Id, int number)
 }
 
 
-void Nextion::NextionSetVisibility(char *Id, int visibility)
+void Nextion::NextionSetVisibility(const char *Id, int visibility) // char changed to const char
 {
     char buf[50];
     int len = sprintf(buf, "vis %s,%d", Id, visibility);
